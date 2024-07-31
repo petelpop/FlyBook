@@ -1,3 +1,4 @@
+import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class SplashPage extends StatelessWidget {
               height: 100,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/icon/ic_plane.png"))
+                  image: AssetImage(Assets.icPlane))
               )
             ),
             Text(

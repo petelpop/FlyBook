@@ -1,3 +1,4 @@
+import 'package:airplane/views/pages/get_started_page.dart';
 import 'package:airplane/views/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
+      home: GetStartedPage(),
     );
   }
 }
