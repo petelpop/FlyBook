@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class GetStartedPage extends StatelessWidget {
+  static String routeName = "get-started-page";
   const GetStartedPage({super.key});
 
   @override
