@@ -1,5 +1,6 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/widgets/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -25,106 +26,10 @@ class MainPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(),
-                        Container(
-                          width: 24,
-                          height: 24,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                Assets.icHome
-                              )
-                            )
-                          ),
-                        ),
-                        Container(
-                          width: 30,
-                          height: 2,
-                          decoration: BoxDecoration(
-                            color: kPrimaryColor,
-                            borderRadius: BorderRadius.circular(18)
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(),
-                        Container(
-                          width: 24,
-                          height: 24,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                Assets.icBook
-                              )
-                            )
-                          ),
-                        ),
-                        Container(
-                          width: 30,
-                          height: 2,
-                          decoration: BoxDecoration(
-                            color: kTransparentColor,
-                            borderRadius: BorderRadius.circular(18)
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(),
-                        Container(
-                          width: 24,
-                          height: 24,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                Assets.icCard
-                              )
-                            )
-                          ),
-                        ),
-                        Container(
-                          width: 30,
-                          height: 2,
-                          decoration: BoxDecoration(
-                            color: kTransparentColor,
-                            borderRadius: BorderRadius.circular(18)
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(),
-                        Container(
-                          width: 24,
-                          height: 24,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                Assets.icSettings
-                              )
-                            )
-                          ),
-                        ),
-                        Container(
-                          width: 30,
-                          height: 2,
-                          decoration: BoxDecoration(
-                            color: kTransparentColor,
-                            borderRadius: BorderRadius.circular(18)
-                          ),
-                        )
-                      ],
-                    ),
+                    CustomBottomNavigationItem(img: Assets.icHome, isSelected: true,),
+                    CustomBottomNavigationItem(img: Assets.icBook),
+                    CustomBottomNavigationItem(img: Assets.icCard),
+                    CustomBottomNavigationItem(img: Assets.icSettings),
                   ],
                 ),
               ),

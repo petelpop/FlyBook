@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/pages/bonus_page.dart';
+import 'package:airplane/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -45,29 +46,11 @@ class SignUpPage extends StatelessWidget {
         Widget inputSection() {
 
         Widget submitButton(){
-          return Container(
-            margin: EdgeInsets.only(top: 30),
-            width: double.infinity,
-            height: 55,
-            child: TextButton(
-              child: Text(
-                "Get Started",
-                style: whiteTextStyle.copyWith(
-                  fontSize: 18,
-                  fontWeight: medium
-                ),
-              ),
-              style: TextButton.styleFrom(
-                backgroundColor: kPrimaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(defaultRadius)                  
-                )
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, BonusPage.routeName);
-              },
-              )
-          );
+          return CustomButton(
+            text: 'Get Started', 
+            onTap: (){
+              Navigator.pushNamed(context, BonusPage.routeName);
+            });
         }
 
         Widget nameInput() {
