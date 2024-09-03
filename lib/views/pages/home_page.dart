@@ -1,6 +1,7 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/widgets/destination_card.dart';
+import 'package:airplane/views/widgets/destination_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -75,15 +76,52 @@ class HomePage extends StatelessWidget {
                   img: Assets.imgDestination4,
                   rating: 5.0,
                 ),
-                                DestinationCard(
+                DestinationCard(
                   name: "Payung Teduh",
                   city: "Singapore",
                   img: Assets.imgDestination5,
                   rating: 4.8,
                 ),
-                SizedBox(width: defaultMargin,)
+                SizedBox(
+                  width: defaultMargin,
+                )
               ],
             ),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(
+              top: 30, left: defaultMargin, right: defaultMargin),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'New This Year',
+                style:
+                    blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
+              ),
+                  DestinationTile(
+                  name: 'Danau Beratan',
+                  city: "Singaraja",
+                  img: Assets.imgDestination6),
+                  DestinationTile(
+                  name: 'Sydney Opera',
+                  city: "Australia",
+                  img: Assets.imgDestination7),
+                  DestinationTile(
+                  name: 'Roma',
+                  city: "Italy",
+                  img: Assets.imgDestination8),
+                  DestinationTile(
+                  name: 'Payung Teduh',
+                  city: "Singapore",
+                  img: Assets.imgDestination9),
+                  DestinationTile(
+                  name: 'Hill Hey',
+                  city: "Monaco",
+                  img: Assets.imgDestination10),
+                  SizedBox(height: 110,)
+            ],
           ),
         )
       ],
