@@ -1,5 +1,6 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/sign_up_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,9 @@ class GetStartedPage extends StatelessWidget {
                   width: 220,
                   height: 55,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignUpPage.routeName);
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: kPrimaryColor,
                         shape: RoundedRectangleBorder(
