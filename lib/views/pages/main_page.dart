@@ -1,5 +1,6 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/home_page.dart';
 import 'package:airplane/views/widgets/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class MainPage extends StatelessWidget {
         backgroundColor: kBackgroundColor,
         body: Stack(
           children: [
+            HomePage(),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
