@@ -1,5 +1,6 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
 class BonusPage extends StatelessWidget {
@@ -120,7 +121,9 @@ class BonusPage extends StatelessWidget {
                         width: 220,
                         height: 55,
                         child: TextButton(
-                          onPressed:() {},
+                          onPressed:() {
+                            Navigator.pushNamed(context, MainPage.routeName);
+                          },
                           style: TextButton.styleFrom(
                             backgroundColor: kPrimaryColor,
                             shape: RoundedRectangleBorder(
