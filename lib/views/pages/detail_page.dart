@@ -2,6 +2,7 @@ import 'dart:isolate';
 
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/choose_seat_page.dart';
 import 'package:airplane/views/widgets/custom_button.dart';
 import 'package:airplane/views/widgets/interest_item.dart';
 import 'package:airplane/views/widgets/photo_item.dart';
@@ -40,7 +41,7 @@ class DetailPage extends StatelessWidget {
                   ])),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              margin: EdgeInsets.symmetric(horizontal: defaultMargin, vertical: defaultMargin),
               child: Column(
                 children: [
                   /// EMBLEM
@@ -209,7 +210,7 @@ class DetailPage extends StatelessWidget {
                         CustomButton(
                           text: 'Book Now', 
                           onTap: (){
-
+                            Navigator.pushNamed(context, ChooseSeatPage.routeName);
                           },
                           width: 170,)
                       ],
