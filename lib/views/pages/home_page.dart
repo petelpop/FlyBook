@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.only(
-              top: 30, left: defaultMargin, right: defaultMargin),
+              top: 30, left: defaultMargin, right: defaultMargin, bottom: 100),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -103,24 +103,28 @@ class HomePage extends StatelessWidget {
                   DestinationTile(
                   name: 'Danau Beratan',
                   city: "Singaraja",
-                  img: Assets.imgDestination6),
+                  img: Assets.imgDestination6,
+                  rating: 4.5,),
                   DestinationTile(
                   name: 'Sydney Opera',
                   city: "Australia",
-                  img: Assets.imgDestination7),
+                  img: Assets.imgDestination7,
+                  rating: 4.7,),
                   DestinationTile(
                   name: 'Roma',
                   city: "Italy",
-                  img: Assets.imgDestination8),
+                  img: Assets.imgDestination8,
+                  rating: 4.8,),
                   DestinationTile(
                   name: 'Payung Teduh',
                   city: "Singapore",
-                  img: Assets.imgDestination9),
+                  img: Assets.imgDestination9,
+                  rating: 4.5,),
                   DestinationTile(
                   name: 'Hill Hey',
                   city: "Monaco",
-                  img: Assets.imgDestination10),
-                  SizedBox(height: 110,)
+                  img: Assets.imgDestination10,
+                  rating: 4.7,),
             ],
           ),
         )
