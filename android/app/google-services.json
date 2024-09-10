@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "16939929676",
+    "project_id": "airplane-81378",
+    "storage_bucket": "airplane-81378.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16939929676:android:efed7bee6039520f30e4e9",
+        "android_client_info": {
+          "package_name": "com.pall.airplane"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmlYXvx6sE9wu-LDlzwzFqmqdVze0lEF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

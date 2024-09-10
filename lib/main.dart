@@ -8,10 +8,16 @@ import 'package:airplane/views/pages/main_page.dart';
 import 'package:airplane/views/pages/sign_up_page.dart';
 import 'package:airplane/views/pages/splash_page.dart';
 import 'package:airplane/views/pages/success_checkout_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() => runApp(const MyApp());
+  void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
