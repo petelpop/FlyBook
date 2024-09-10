@@ -1,5 +1,7 @@
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/checkout_page.dart';
+import 'package:airplane/views/widgets/custom_button.dart';
 import 'package:airplane/views/widgets/seat_item.dart';
 import 'package:flutter/material.dart';
 
@@ -171,11 +173,11 @@ class ChooseSeatPage extends StatelessWidget {
                         width: 48,
                         height: 48,
                         child: Center(
-                        child: Text(
-                          '1',
-                          style: greyTextStyle.copyWith(fontSize: 16),
+                          child: Text(
+                            '1',
+                            style: greyTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
-                      ),
                       ),
                       SeatItem(
                         status: 0,
@@ -203,11 +205,11 @@ class ChooseSeatPage extends StatelessWidget {
                         width: 48,
                         height: 48,
                         child: Center(
-                        child: Text(
-                          '2',
-                          style: greyTextStyle.copyWith(fontSize: 16),
+                          child: Text(
+                            '2',
+                            style: greyTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
-                      ),
                       ),
                       SeatItem(
                         status: 0,
@@ -235,11 +237,11 @@ class ChooseSeatPage extends StatelessWidget {
                         width: 48,
                         height: 48,
                         child: Center(
-                        child: Text(
-                          '3',
-                          style: greyTextStyle.copyWith(fontSize: 16),
+                          child: Text(
+                            '3',
+                            style: greyTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
-                      ),
                       ),
                       SeatItem(
                         status: 0,
@@ -267,11 +269,11 @@ class ChooseSeatPage extends StatelessWidget {
                         width: 48,
                         height: 48,
                         child: Center(
-                        child: Text(
-                          '4',
-                          style: greyTextStyle.copyWith(fontSize: 16),
+                          child: Text(
+                            '4',
+                            style: greyTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
-                      ),
                       ),
                       SeatItem(
                         status: 0,
@@ -282,7 +284,7 @@ class ChooseSeatPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+
                 ///SEAT 5
                 Container(
                   margin: EdgeInsets.only(top: 16),
@@ -299,11 +301,11 @@ class ChooseSeatPage extends StatelessWidget {
                         width: 48,
                         height: 48,
                         child: Center(
-                        child: Text(
-                          '5',
-                          style: greyTextStyle.copyWith(fontSize: 16),
+                          child: Text(
+                            '5',
+                            style: greyTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
-                      ),
                       ),
                       SeatItem(
                         status: 2,
@@ -314,9 +316,53 @@ class ChooseSeatPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+
+                ///YOUR SEAT
+                Container(
+                  margin: EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Your Seat',
+                        style: greyTextStyle.copyWith(fontWeight: light),
+                      ),
+                      Text(
+                        'A3, B3',
+                        style: blackTextStyle.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      )
+                    ],
+                  ),
+                ),
+
+                ///TOTAL
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total',
+                        style: greyTextStyle.copyWith(fontWeight: light),
+                      ),
+                      Text(
+                        'IDR 540.000.000',
+                        style: purpleTextStyle.copyWith(
+                            fontSize: 16, fontWeight: semiBold),
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
+          ),
+          CustomButton(
+            text: 'Continue To Checkout',
+            onTap: () {
+              Navigator.pushNamed(context, CheckoutPage.routeName);
+            },
+            margin: EdgeInsets.only(top: 30, bottom: 46),
           )
         ],
       ),
