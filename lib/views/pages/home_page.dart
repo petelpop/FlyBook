@@ -1,8 +1,10 @@
+import 'package:airplane/cubit/auth_cubit.dart';
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/widgets/destination_card.dart';
 import 'package:airplane/views/widgets/destination_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,40 +13,48 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
-          margin: EdgeInsets.only(
-              top: 30, left: defaultMargin, right: defaultMargin),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Howdy,\nKezia Anne',
-                      style: blackTextStyle.copyWith(
-                          fontSize: 24, fontWeight: semiBold),
-                      overflow: TextOverflow.ellipsis,
+        BlocBuilder<AuthCubit, AuthState>(
+          builder: (context, state) {
+            if (state is AuthSuccess) {
+              return Container(
+              margin: EdgeInsets.only(
+                  top: 30, left: defaultMargin, right: defaultMargin),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Howdy,\n${state.data.name}',
+                          style: blackTextStyle.copyWith(
+                              fontSize: 24, fontWeight: semiBold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 6),
+                        Text(
+                          'Where to fly today?',
+                          style: greyTextStyle.copyWith(
+                              fontSize: 16, fontWeight: light),
+                        )
+                      ],
                     ),
-                    SizedBox(height: 6),
-                    Text(
-                      'Where to fly today?',
-                      style: greyTextStyle.copyWith(
-                          fontSize: 16, fontWeight: light),
-                    )
-                  ],
-                ),
+                  ),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(Assets.imgProfile))),
+                  )
+                ],
               ),
-              Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image:
-                        DecorationImage(image: AssetImage(Assets.imgProfile))),
-              )
-            ],
-          ),
+            );
+            } else {
+              return SizedBox();
+            }
+          },
         ),
         Container(
           margin: EdgeInsets.only(top: 30),
@@ -100,31 +110,36 @@ class HomePage extends StatelessWidget {
                 style:
                     blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
               ),
-                  DestinationTile(
-                  name: 'Danau Beratan',
-                  city: "Singaraja",
-                  img: Assets.imgDestination6,
-                  rating: 4.5,),
-                  DestinationTile(
-                  name: 'Sydney Opera',
-                  city: "Australia",
-                  img: Assets.imgDestination7,
-                  rating: 4.7,),
-                  DestinationTile(
-                  name: 'Roma',
-                  city: "Italy",
-                  img: Assets.imgDestination8,
-                  rating: 4.8,),
-                  DestinationTile(
-                  name: 'Payung Teduh',
-                  city: "Singapore",
-                  img: Assets.imgDestination9,
-                  rating: 4.5,),
-                  DestinationTile(
-                  name: 'Hill Hey',
-                  city: "Monaco",
-                  img: Assets.imgDestination10,
-                  rating: 4.7,),
+              DestinationTile(
+                name: 'Danau Beratan',
+                city: "Singaraja",
+                img: Assets.imgDestination6,
+                rating: 4.5,
+              ),
+              DestinationTile(
+                name: 'Sydney Opera',
+                city: "Australia",
+                img: Assets.imgDestination7,
+                rating: 4.7,
+              ),
+              DestinationTile(
+                name: 'Roma',
+                city: "Italy",
+                img: Assets.imgDestination8,
+                rating: 4.8,
+              ),
+              DestinationTile(
+                name: 'Payung Teduh',
+                city: "Singapore",
+                img: Assets.imgDestination9,
+                rating: 4.5,
+              ),
+              DestinationTile(
+                name: 'Hill Hey',
+                city: "Monaco",
+                img: Assets.imgDestination10,
+                rating: 4.7,
+              ),
             ],
           ),
         )
