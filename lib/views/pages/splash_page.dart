@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/pages/get_started_page.dart';
+import 'package:airplane/views/pages/home_page.dart';
+import 'package:airplane/views/pages/main_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,8 +19,15 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
+
     Timer(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, GetStartedPage.routeName);
+      User? user = FirebaseAuth.instance.currentUser;
+      if(user == null) {
+      Navigator.pushNamedAndRemoveUntil(context, GetStartedPage.routeName, (route) => false);
+      } else {
+        print(user.email);
+        Navigator.pushNamedAndRemoveUntil(context, MainPage.routeName, (route) => false);
+      }
     });
     super.initState();
   }
