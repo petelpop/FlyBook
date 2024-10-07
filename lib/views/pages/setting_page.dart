@@ -1,5 +1,7 @@
 import 'package:airplane/cubit/auth_cubit.dart';
+import 'package:airplane/cubit/page_cubit.dart';
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/views/pages/sign_in_page.dart';
 import 'package:airplane/views/pages/sign_up_page.dart';
 import 'package:airplane/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,8 @@ class SettingPage extends StatelessWidget {
             content: Text(state.message)));
         }
         if (state is AuthInitial) {
-          Navigator.pushNamedAndRemoveUntil(context, SignUpPage.routeName, (route) => false);
+          context.read<PageCubit>().setPage(0);
+          Navigator.pushNamedAndRemoveUntil(context, SignInPage.routeName, (route) => false);
         }
       },
       builder: (context, state) {
