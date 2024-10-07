@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthServices {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<UserModel> signUp({
+  Future<UserModel> signUp({ 
     required String email,
     required String password,
     required String name,
@@ -27,6 +27,14 @@ class AuthServices {
       
     } catch (e) {
       throw e;
+    }
+  }
+
+  Future<void> signOut() async{
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      
     }
   }
 }

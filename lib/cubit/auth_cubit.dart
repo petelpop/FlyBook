@@ -17,7 +17,17 @@ class AuthCubit extends Cubit<AuthState> {
       UserModel data = await service.signUp(email: email, password: password, name: name, hobby: hobby);
       emit(AuthSuccess(data));
     } catch (e) {
-      emit(AuthFailed("ini error $e"));
+      emit(AuthFailed("error : $e"));
     }
   }
+
+  void signOut() async{
+    try {
+      emit(AuthLoading());
+      await AuthServices().signOut();
+      emit(AuthInitial());
+    } catch (e) {
+      emit(AuthFailed("error : $e"));
+    }
+    }
 }
