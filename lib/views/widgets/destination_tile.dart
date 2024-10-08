@@ -1,19 +1,14 @@
+import 'package:airplane/models/destination.dart';
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 
 class DestinationTile extends StatelessWidget {
-  final String name;
-  final String city;
-  final String img;
-  final double rating;
+  final DestinationModel destination;
   const DestinationTile(
-      {super.key,
-      required this.name,
-      required this.city,
-      this.rating = 0.0,
-      required this.img});
+      this.destination,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +32,7 @@ class DestinationTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
-                    image: AssetImage(img), fit: BoxFit.cover),
+                    image: NetworkImage(destination.imageUrl), fit: BoxFit.cover),
               ),
             ),
             Expanded(
@@ -45,13 +40,13 @@ class DestinationTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    destination.name,
                     style:
                         blackTextStyle.copyWith(fontWeight: medium, fontSize: 18),
                   ),
                   SizedBox(height: 5),
                   Text(
-                    city,
+                    destination.city,
                     style: greyTextStyle.copyWith(
                       fontWeight: light,
                     ),
@@ -71,7 +66,7 @@ class DestinationTile extends StatelessWidget {
                       image: DecorationImage(image: AssetImage(Assets.icStar))),
                 ),
                 Text(
-                  rating.toString(),
+                  destination.rating.toString(),
                   style: blackTextStyle.copyWith(fontWeight: medium),
                 ),
               ],
