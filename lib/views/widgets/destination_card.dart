@@ -14,7 +14,7 @@ class DestinationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, DetailPage.routeName);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(destination)));
       },
       child: Container(
         width: 200,

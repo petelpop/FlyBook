@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
           SignInPage.routeName:(context) => SignInPage(),
           BonusPage.routeName:(context) => BonusPage(),
           MainPage.routeName:(context) => MainPage(),
-          DetailPage.routeName:(context) => DetailPage(),
           ChooseSeatPage.routeName:(context) => ChooseSeatPage(),
           CheckoutPage.routeName:(context) => CheckoutPage(),
           SuccessCheckoutPage.routeName:(context) => SuccessCheckoutPage(),
