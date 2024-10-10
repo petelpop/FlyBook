@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:airplane/cubit/seat_cubit.dart';
 import 'package:airplane/models/destination.dart';
+import 'package:airplane/models/transaction.dart';
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/pages/checkout_page.dart';
@@ -361,7 +362,11 @@ class ChooseSeatPage extends StatelessWidget {
                             style: greyTextStyle.copyWith(fontWeight: light),
                           ),
                           Text(
-                             NumberFormat.currency(locale: 'id', symbol: 'IDR ', decimalDigits: 0).format(state.length * destination.price),
+                            NumberFormat.currency(
+                                    locale: 'id',
+                                    symbol: 'IDR ',
+                                    decimalDigits: 0)
+                                .format(state.length * destination.price),
                             style: purpleTextStyle.copyWith(
                                 fontSize: 16, fontWeight: semiBold),
                           )
@@ -373,12 +378,30 @@ class ChooseSeatPage extends StatelessWidget {
               );
             },
           ),
-          CustomButton(
-            text: 'Continue To Checkout',
-            onTap: () {
-              Navigator.pushNamed(context, CheckoutPage.routeName);
+          BlocBuilder<SeatCubit, List<String>>(
+            builder: (context, state) {
+              return CustomButton(
+                text: 'Continue To Checkout',
+                onTap: () {
+                  int price = destination.price * state.length;
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CheckoutPage(
+                              TransactionModel(
+                                destination: destination,
+                                amountOfTraveler: state.length,
+                                selectedSeats: state.join(', '),
+                                insurance: true,
+                                refundable: false,
+                                price: price,
+                                vat: 0.45,
+                              grandTotal: price + (price * 0.45).toInt()
+                              ))));
+                },
+                margin: EdgeInsets.only(top: 30, bottom: 46),
+              );
             },
-            margin: EdgeInsets.only(top: 30, bottom: 46),
           )
         ],
       ),

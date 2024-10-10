@@ -1,8 +1,10 @@
+import 'package:airplane/cubit/page_cubit.dart';
 import 'package:airplane/shared/assets.dart';
 import 'package:airplane/shared/theme.dart';
 import 'package:airplane/views/pages/main_page.dart';
 import 'package:airplane/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SuccessCheckoutPage extends StatelessWidget {
   static const String routeName = "success-checkout-page";
@@ -49,6 +51,7 @@ class SuccessCheckoutPage extends StatelessWidget {
               margin: EdgeInsets.only(top: 50),
               width: 220,
               onTap: (){
+                context.read<PageCubit>().setPage(1);
                 Navigator.pushNamedAndRemoveUntil(context, MainPage.routeName, (route) => false);
               })
           ],
