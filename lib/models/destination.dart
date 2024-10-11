@@ -30,7 +30,7 @@ class DestinationModel extends Equatable {
     'city': city,
     'imageUrl': imageUrl,
     'rating': rating,
-    'prince': price
+    'price': price
   };
 
   @override

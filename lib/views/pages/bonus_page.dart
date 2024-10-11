@@ -21,7 +21,7 @@ class BonusPage extends StatelessWidget {
             BlocBuilder<AuthCubit, AuthState>(
               builder: (context, state) {
                 if (state is AuthSuccess) {
-                 return Container(
+                return Container(
                   width: 300,
                   height: 211,
                   padding: EdgeInsets.all(defaultMargin),
